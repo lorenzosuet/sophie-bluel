@@ -26,6 +26,12 @@ function displayCategories(buttons) {
   const container = document.querySelector(".categories");
   container.innerHTML = ""; // On vide le conteneur avant d'ajouter les boutons
 
+  // Ajout de l'option "Tous" en premier
+  const allBtn = document.createElement("button");
+  allBtn.classList.add("category-item"); // Ajoute la même classe que les autres boutons
+  allBtn.textContent = "Tous";
+  container.appendChild(allBtn);
+
   buttons.forEach(button => {
     const btn = document.createElement("button");
     btn.textContent = button.name; // Assure-toi que l'API renvoie bien un champ 'name'
