@@ -131,7 +131,7 @@ li:hover {
 	margin-bottom: 1em;
 }
 
-.btnS {
+.categories {
 	display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -140,7 +140,7 @@ li:hover {
     gap: 10px;
 }
 
-.btnS button {
+.categories button {
     border-radius: 60px;
     border: 1px solid #1D6154;
     background-color: white;
@@ -153,7 +153,7 @@ li:hover {
     padding-right: 15px;
 }
 
-.btnS button:hover {
+.categories button:hover {
     color: white;
     background-color: #1D6154;
     cursor: pointer;
@@ -171,7 +171,7 @@ li:hover {
 	width: 100%;
 
 }
-#contact {
+#contact, #log{
 	width: 50%;
     margin: auto;
 }
@@ -179,7 +179,7 @@ li:hover {
 	text-align: center;
 
 }
-#contact h2, #log h2{
+#contact h2, #log h2 {
 	margin-bottom: 20px;
 }
 #contact form, #log form {
@@ -187,46 +187,6 @@ li:hover {
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
-}
-
-#contact input, #log input {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-#contact label {
-	margin: 2em 0 1em 0;
-}
-#contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-
-input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
-}
-
-footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em
-}
-
-#contact, #log {
-	width: 50%;
-    margin: auto;
-}
-#contact > * {
-	text-align: center;
-
 }
 
 #contact input, #log input {
@@ -260,46 +220,128 @@ footer nav ul {
 	margin: 2em
 }
 
-/* Page log */
-*.login {
-	text-decoration: none;
-	color: black;
-	font-weight: bold;
-	
+#contact {
+	width: 50%;
+    margin: auto;
 }
-
-.login:hover {
-	color: #B1663C;
-}
-
-
-#log h2 {
+#contact > * {
 	text-align: center;
-	margin-top: 242px;
+
 }
 
-#log a {
-	color: #3D3D3D;
+#contact input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#contact label {
+	margin: 2em 0 1em 0;
+}
+#contact textarea {
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-#log p {
+input[type="submit"]{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
 	text-align: center;
+	border-radius: 60px ;
 }
 
-
- 
-
-.footer-log {
-	margin-top: 200px;
+footer nav ul {
+	display: flex;
+	justify-content: flex-end;
+	margin: 2em
 }
 
-
-#Error {
-	color: red;
-	font-size: 14px;
-	margin-top: 25px;
+/* ====== MAIN LOGIN ====== */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin-top: 40px;
 }
 
+main h2 {
+  font-family: "Syne", sans-serif;
+  font-size: 30px;
+  color: #1d6154;
+  margin-bottom: 30px;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+}
 
+label {
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
 
+input[type="email"],
+input[type="password"] {
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 26px;
+  outline: none;
+  border: none;
+  transition: border-color 0.3s;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #1d6154;
+}
+
+button.btn-login {
+  background-color: #1d6154;
+  color: white;
+   font-family: "Syne";
+  border: none;
+  border-radius: 25px;
+  padding: 12px;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button.btn-login:hover {
+  background-color: #0e4038;
+}
+
+/* Lien "Mot de passe oublié" */
+a.forgot-password {
+  text-align: center;
+  margin-top: 15px;
+  color: #3d3d3d;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+a.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  text-align: right;
+  padding: 20px 100px;
+  font-size: 14px;
+  color: #3d3d3d;
+}
