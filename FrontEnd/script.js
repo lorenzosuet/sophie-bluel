@@ -7,32 +7,11 @@
 const apiUrlWorks = "http://localhost:5678/api/works";
 const apiUrlCategories = "http://localhost:5678/api/categories";
 
-// Fonction de connexion
-async function handleLogin(event) {
-  event.preventDefault();
-  const email = document.querySelector('#email').value;
-  const password = document.querySelector('#password').value;
-  try {
-    const response = await fetch(apiUrllogin, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await response.json();
-    if (response.ok) {
-      localStorage.setItem('token', data.token);
-      showLoginSuccess();
-      setupConnectionParameters(); // Afficher les paramètres après une connexion réussie
-    } else {
-      alert('Échec de la connexion : ' + data.message);
-    }
-  } catch (error) {
-    console.error('Erreur de connexion :', error);
-    alert('Une erreur s\'est produite lors de la connexion');
-  }
-}
+// Initialisation
+fetchCategories();
+filterProjects("all"); // Charger tous les projets au démarrage
+
+
 
 async function fetchCategories() {
   try {
@@ -67,6 +46,7 @@ function displayCategories(categories) {
   // Ajouter les écouteurs d'événements après la création des boutons
   container.addEventListener("click", (e) => {
     const button = e.target.closest("button");
+    
     if (button) {
       filterProjects(button.dataset.category);
     }
@@ -111,6 +91,4 @@ function displayCards(items) {
   });
 }
 
-// Initialisation
-fetchCategories();
-filterProjects("all"); // Charger tous les projets au démarrage
+

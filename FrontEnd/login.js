@@ -3,9 +3,17 @@ const apiUrllogin = "http://localhost:5678/api/users/login";
 
 // Fonction de connexion
 async function handleLogin(event) {
-  event.preventDefault();
-  const email = document.querySelector('#email').value;
-  const password = document.querySelector('#password').value;
+  event.preventDefault(); // Un seul appel suffit
+
+  // Récupération des valeurs (une seule fois)
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+
+  // Validation basique
+  if (!email || !password) {
+    alert('Veuillez remplir l\'email et le mot de passe.');
+    return;
+  }
 
   try {
     const response = await fetch(apiUrllogin, {
@@ -15,34 +23,43 @@ async function handleLogin(event) {
       },
       body: JSON.stringify({ email, password }),
     });
+
     const data = await response.json();
+
     if (response.ok) {
+      // Connexion réussie
       localStorage.setItem('token', data.token);
       showLoginSuccess();
       setupConnectionParameters();
     } else {
-      alert('Échec de la connexion : ' + data.message);
+      // Erreur renvoyée par le serveur
+      alert('Échec de la connexion : ' + (data.message || 'Identifiants incorrects'));
     }
   } catch (error) {
     console.error('Erreur de connexion :', error);
-    alert('Une erreur s\'est produite lors de la connexion');
+    alert('Une erreur réseau est survenue. Vérifie que le serveur est lancé.');
   }
 }
 
-// Afficher la réussite de la connexion et la section des paramètres
+// Afficher la section des paramètres après connexion
 function showLoginSuccess() {
   document.querySelector('.login-form').style.display = 'none';
   document.querySelector('.connection-params').style.display = 'block';
 }
 
-// Configurer les paramètres de connexion
+// Pré-remplir les paramètres par défaut
 function setupConnectionParameters() {
   const token = localStorage.getItem('token');
   if (token) {
     document.getElementById('api-url').value = 'http://localhost:5678/api/works';
-    document.getElementById('timeout').value = '30'; // Délai par défaut en secondes
+    document.getElementById('timeout').value = '30';
   }
 }
 
-// Initialisation de l'écouteur d'événement pour le formulaire de connexion
-document.querySelector('.login-form').addEventListener('submit', handleLogin);
+// === IMPORTANT : Lier le formulaire à la fonction ===
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.querySelector('.login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+  }
+});

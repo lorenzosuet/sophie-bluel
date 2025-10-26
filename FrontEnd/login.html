@@ -11,38 +11,36 @@
 	<link rel="stylesheet" href="./assets/style.css">
     </head>
     <body>
-<header>
-	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-	<nav>
-		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li><a href="login.html" class="login">login</a></li>
-			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
-		</ul>
-	</nav>
-</header>
-<main>
-  <h2>Log In</h2>
-  <form id="login-form">
-    <label for="email">E-mail</label>
-    <input type="email" id="email" name="email" required />
-
-    <label for="password">Mot de passe</label>
-    <input type="password" id="password" name="password" required />
-
-    <button type="submit" class="btn-login">Se connecter</button>
-
-    <a href="#" class="forgot-password">Mot de passe oublié</a>
-  </form>
-</main>
-<footer>
-	<nav>
-		<ul>
-			<li>Mentions Légales</li>
-		</ul>
-	</nav>
-</footer>
-<script src="login.js"></script>
+		<header>
+			<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+			<nav>
+				<ul>
+					<li>projets</li>
+					<li>contact</li>
+					<li><a href="login.html" class="login">login</a></li>
+					<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<h2>Log In</h2>
+			<form class="login-form">
+				<label for="email">E-mail</label>
+				<input type="email" id="email" name="email" required></input>
+				<label for="password">Mot de passe</label>
+				<input type="password" id="password" name="password" required></input>
+				<button type="submit" classe="btn-login">Se connecter</button>
+                <form onsubmit="return valider()"></form>
+				<a href="#" class="forgot-password">Mot de passe oublié</a>
+			</form>
+		</main>
+		<footer>
+			<nav>
+				<ul>
+					<li>Mentions Légales</li>
+				</ul>
+			</nav>
+		</footer>
+	<script src="login.js"></script>
     </body>
 </html>

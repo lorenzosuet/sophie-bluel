@@ -153,7 +153,7 @@ li:hover {
     padding-right: 15px;
 }
 
-.categories button:hover {
+.categories button:hover, .categories .active {
     color: white;
     background-color: #1D6154;
     cursor: pointer;
@@ -203,15 +203,24 @@ li:hover {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+input [type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
 	margin : 2em auto ;
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+}
+
+[type="submit"] {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1d6154;
+	margin : 2em auto;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px;
 }
 
 footer nav ul {
@@ -243,21 +252,10 @@ footer nav ul {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
-}
-
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
 
 /* ====== MAIN LOGIN ====== */
@@ -307,7 +305,7 @@ input[type="password"]:focus {
   border-color: #1d6154;
 }
 
-button.btn-login {
+input.btn-login {
   background-color: #1d6154;
   color: white;
    font-family: "Syne";
@@ -321,7 +319,7 @@ button.btn-login {
   transition: background-color 0.3s;
 }
 
-button.btn-login:hover {
+input.btn-login:hover {
   background-color: #0e4038;
 }
 
